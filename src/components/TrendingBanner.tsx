@@ -1,26 +1,29 @@
 import { TrendingUp } from 'lucide-react';
-import { posts, Post } from '@/data/mockData';
+import { useNavigate } from 'react-router-dom';
+import { posts } from '@/data/mockData';
 
-interface TrendingBannerProps {
-  onPostClick: (post: Post) => void;
-}
-
-const TrendingBanner = ({ onPostClick }: TrendingBannerProps) => {
+const TrendingBanner = () => {
+  const navigate = useNavigate();
   const trending = posts.filter((p) => p.isTrending).slice(0, 4);
 
   return (
     <div className="px-4 py-4">
-      <div className="flex items-center gap-2 mb-3">
-        <div className="w-7 h-7 rounded-lg gradient-trending flex items-center justify-center">
-          <TrendingUp size={14} className="text-trending-foreground" />
+      <div className="flex items-center justify-between mb-3">
+        <div className="flex items-center gap-2">
+          <div className="w-7 h-7 rounded-lg gradient-trending flex items-center justify-center">
+            <TrendingUp size={14} className="text-trending-foreground" />
+          </div>
+          <h2 className="text-base font-extrabold text-foreground">Trendda</h2>
         </div>
-        <h2 className="text-base font-extrabold text-foreground">Trendda</h2>
+        <button onClick={() => navigate('/trending')} className="text-xs font-bold text-primary">
+          Hammasi →
+        </button>
       </div>
       <div className="flex gap-3 overflow-x-auto scrollbar-hide pb-1">
         {trending.map((post) => (
           <button
             key={post.id}
-            onClick={() => onPostClick(post)}
+            onClick={() => navigate(`/post/${post.id}`)}
             className="relative flex-shrink-0 w-36 h-48 rounded-2xl overflow-hidden group"
           >
             <img

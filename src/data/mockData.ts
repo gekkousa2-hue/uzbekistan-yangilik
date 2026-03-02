@@ -1,3 +1,12 @@
+export interface Comment {
+  id: string;
+  author: string;
+  authorAvatar: string;
+  text: string;
+  timeAgo: string;
+  likes: number;
+}
+
 export interface Post {
   id: string;
   type: 'news' | 'meme';
@@ -24,6 +33,30 @@ export const categories = [
   { id: 'tech', label: 'Texnologiya', icon: '💻' },
   { id: 'lifestyle', label: 'Turmush', icon: '🌟' },
 ];
+
+export const mockComments: Record<string, Comment[]> = {
+  '1': [
+    { id: 'c1', author: 'Ali', authorAvatar: '👨', text: 'Ajoyib yangilik! Toshkent rivojlanmoqda 🎉', timeAgo: '1 soat oldin', likes: 12 },
+    { id: 'c2', author: 'Madina', authorAvatar: '👩', text: 'Metro juda kerak edi!', timeAgo: '45 daqiqa oldin', likes: 8 },
+    { id: 'c3', author: 'Jasur', authorAvatar: '🧑', text: 'Qaysi stansiyalar ochildi?', timeAgo: '30 daqiqa oldin', likes: 3 },
+  ],
+  '2': [
+    { id: 'c4', author: 'Nodira', authorAvatar: '😄', text: 'Haha bugun aynan shunday bo\'ldi 😂', timeAgo: '20 daqiqa oldin', likes: 45 },
+    { id: 'c5', author: 'Bekzod', authorAvatar: '😎', text: 'Har dushanba shunday!', timeAgo: '15 daqiqa oldin', likes: 23 },
+  ],
+  '3': [
+    { id: 'c6', author: 'Sardor', authorAvatar: '💪', text: 'O\'zbekiston IT da kuchli!', timeAgo: '3 soat oldin', likes: 15 },
+  ],
+  '4': [
+    { id: 'c7', author: 'Gulnora', authorAvatar: '😅', text: 'Menga tegishli 😂', timeAgo: '50 daqiqa oldin', likes: 67 },
+    { id: 'c8', author: 'Shaxlo', authorAvatar: '👩‍🍳', text: 'YouTube dan o\'rgandim haha', timeAgo: '40 daqiqa oldin', likes: 34 },
+  ],
+  '6': [
+    { id: 'c9', author: 'Otabek', authorAvatar: '⚽', text: 'O\'zbekiston chempion bo\'ladi!!! 🏆', timeAgo: '5 soat oldin', likes: 89 },
+    { id: 'c10', author: 'Dilshod', authorAvatar: '🎉', text: 'Zo\'r o\'yin edi!', timeAgo: '4 soat oldin', likes: 45 },
+    { id: 'c11', author: 'Kamola', authorAvatar: '🥳', text: 'Tabriklayman jamoamizni!', timeAgo: '3 soat oldin', likes: 32 },
+  ],
+};
 
 export const posts: Post[] = [
   {
